@@ -6,7 +6,7 @@
 /*   By: malouvar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/15 10:40:36 by malouvar          #+#    #+#             */
-/*   Updated: 2021/07/15 21:32:50 by malouvar         ###   ########.fr       */
+/*   Updated: 2021/07/15 22:18:26 by malouvar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@ void	ft_print_char(char *str)
 void	ft_read_file(int fd, t_line *line)
 {
 	char	c;
-	int		ok;
 
 	while (read(fd, &c, 1) > 0)
 	{
@@ -43,19 +42,21 @@ void	ft_read_file(int fd, t_line *line)
 		{	
 			if (ft_strcmp(line->previous, line->buffer))
 			{
+				ft_put_compteur_c(line->previous_counter);
 				ft_print_hexa_c(line->hexa, line->buffer);
 				ft_print_char(line->buffer);
 				ft_strcpy(line->previous, line->buffer);
-				ok = 1;
+				line->same = 0;
 			}
 			else
 			{
-				ft_putstr("*");
-				ok = 0;
+				if (!line->same)
+					ft_putstr("*");
+				line->same++;
 			}
+			if (line->same == 0 || line->same == 1)
 			ft_putstr("\n");
-			if (ok)
-			ft_put_compteur_c(line->compteur);
+			line->previous_counter = line->compteur;
 		}
 	}
 }
@@ -71,7 +72,6 @@ int	main(int argc, char **argv)
 	if ((line.option && argc > 2) || (!line.option && argc > 1))
 	{
 		i = 1;
-		ft_put_compteur_c(line.compteur);
 		while (i < argc)
 		{
 			if (!ft_strcmp(argv[i], "-C"))
@@ -83,6 +83,8 @@ int	main(int argc, char **argv)
 				ft_putstrerror(argv[0], argv[i]);
 			i++;
 		}
+		ft_put_compteur_c(line.compteur);
+		ft_putstr("\n");
 	}
 	//else
 	//read stdin

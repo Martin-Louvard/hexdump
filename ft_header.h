@@ -6,7 +6,7 @@
 /*   By: malouvar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/15 17:13:57 by malouvar          #+#    #+#             */
-/*   Updated: 2021/07/15 21:23:07 by malouvar         ###   ########.fr       */
+/*   Updated: 2021/07/15 22:10:23 by malouvar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,13 @@
 typedef struct s_line
 {
 	int		compteur;
+	int		previous_counter;
 	char	buffer[16];
 	char	rest[17];
 	char	previous[16];
 	char	hexa[50];
 	int		option;
+	int		same;
 }	t_line;
 void	ft_putstr(char *str);
 void	ft_puterr(char *str);

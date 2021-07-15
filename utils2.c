@@ -6,7 +6,7 @@
 /*   By: malouvar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/15 17:44:38 by malouvar          #+#    #+#             */
-/*   Updated: 2021/07/15 21:27:34 by malouvar         ###   ########.fr       */
+/*   Updated: 2021/07/15 22:11:22 by malouvar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "ft_header.h"
@@ -30,6 +30,8 @@ void	ft_zeros(t_line *line)
 
 	i = 0;
 	(*line).compteur = 0;
+	(*line).same = 0;
+	(*line).previous_counter = 0;
 	while (i < 16)
 	{
 		(*line).buffer[i] = '\0';
