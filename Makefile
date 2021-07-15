@@ -1,4 +1,4 @@
-SRCS =  
+SRCS =   ft_display.c  ft_hexdump.c utils.c   utils2.c
 
 OBJS = ${SRCS:.c=.o}
 

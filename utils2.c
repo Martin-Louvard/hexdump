@@ -6,10 +6,23 @@
 /*   By: malouvar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/15 17:44:38 by malouvar          #+#    #+#             */
-/*   Updated: 2021/07/15 17:46:28 by malouvar         ###   ########.fr       */
+/*   Updated: 2021/07/15 21:27:34 by malouvar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "ft_header.h"
+
+void	ft_strcpy(char *dest, char *src)
+{
+	int	i;
+
+	i = 0;
+	while (i < 16 && src[i])
+	{
+		dest[i] = src[i];
+		i++;
+	}
+	dest[i] = 0;
+}
 
 void	ft_zeros(t_line *line)
 {
@@ -21,7 +34,7 @@ void	ft_zeros(t_line *line)
 	{
 		(*line).buffer[i] = '\0';
 		(*line).rest[i] = '\0';
-		(*line).previous = '\0';
+		(*line).previous[i] = '\0';
 		(*line).hexa[i] = '\0';
 		i++;
 	}

@@ -6,7 +6,7 @@
 /*   By: malouvar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/15 17:20:11 by malouvar          #+#    #+#             */
-/*   Updated: 2021/07/15 17:42:53 by malouvar         ###   ########.fr       */
+/*   Updated: 2021/07/15 18:27:28 by malouvar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int	ft_strcmp(char *s1, char *s2)
 	return (*s1 - *s2);
 }
 
-void	ft_putstrerror(char *name, char *file int errno)
+void	ft_putstrerror(char *name, char *file)
 {
 	ft_puterr(basename(name));
 	ft_puterr(": ");
