@@ -6,7 +6,7 @@
 /*   By: malouvar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/15 17:13:57 by malouvar          #+#    #+#             */
-/*   Updated: 2021/07/16 12:49:55 by malouvar         ###   ########.fr       */
+/*   Updated: 2021/07/16 13:22:19 by malouvar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,4 +54,6 @@ void	ft_print_rest(t_line *line);
 void	ft_put_compteur(int nbr);
 void	ft_print_hexa_rest(char *buffer, int	count);
 void	ft_print_hexa(char *hexa, char *buffer);
+void	ft_print_line_c(t_line *line);
+void	ft_print_line(t_line *line);
 #endif
