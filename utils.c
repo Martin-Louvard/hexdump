@@ -6,7 +6,7 @@
 /*   By: malouvar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/15 17:20:11 by malouvar          #+#    #+#             */
-/*   Updated: 2021/07/15 18:27:28 by malouvar         ###   ########.fr       */
+/*   Updated: 2021/07/16 11:01:52 by malouvar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int	ft_strlen(char *str)
 
 int	ft_strcmp(char *s1, char *s2)
 {
-	while (*s1 && *s1 == *s2)
+	while (*s2 && *s1 == *s2)
 	{
 		s1++;
 		s2++;
