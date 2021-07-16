@@ -6,7 +6,7 @@
 /*   By: malouvar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/15 10:40:36 by malouvar          #+#    #+#             */
-/*   Updated: 2021/07/16 11:40:05 by malouvar         ###   ########.fr       */
+/*   Updated: 2021/07/16 11:48:43 by malouvar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "ft_header.h"
@@ -81,9 +81,9 @@ int	main(int argc, char **argv)
 		}
 		if (line.opened != 0)
 		{
-		ft_print_rest(&line);
-		ft_put_compteur_c(line.compteur);
-		ft_putstr("\n");
+			ft_print_rest(&line);
+			ft_put_compteur_c(line.compteur);
+			ft_putstr("\n");
 		}
 		else
 			ft_print_badfd(argv[0], argv[i - 1]);
