@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_display.c                                       :+:      :+:    :+:   */
+/*   ft_display2.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: malouvar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/15 18:09:57 by malouvar          #+#    #+#             */
-/*   Updated: 2021/07/16 12:08:22 by malouvar         ###   ########.fr       */
+/*   Created: 2021/07/16 12:16:13 by malouvar          #+#    #+#             */
+/*   Updated: 2021/07/16 12:20:37 by malouvar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_header.h"
-void	ft_print_hexa_c(char *hexa, char *buffer)
+void	ft_print_hexa(char *hexa, char *buffer)
 {
 	unsigned int		i;
 	int					j;
@@ -26,8 +26,6 @@ void	ft_print_hexa_c(char *hexa, char *buffer)
 		hexa[j++] = base[((unsigned char)buffer[i]) % 16];
 		if ((j + 1) % 3 == 0)
 			hexa[j++] = ' ';
-		if ((j + 1) / 25 == 1)
-			hexa[j++] = ' ';
 		i++;
 	}
 	if (i < 16)
@@ -38,7 +36,7 @@ void	ft_print_hexa_c(char *hexa, char *buffer)
 	write(1, " ", 1);
 }
 
-void	ft_print_hexa_rest_c(char *buffer, int	count)
+void	ft_print_hexa_rest(char *buffer, int	count)
 {
 	int					i;
 	int					j;
@@ -54,8 +52,6 @@ void	ft_print_hexa_rest_c(char *buffer, int	count)
 		hexa[j++] = base[((unsigned char)buffer[i]) % 16];
 		if ((j + 1) % 3 == 0)
 			hexa[j++] = ' ';
-		if ((j + 1) / 25 == 1)
-			hexa[j++] = ' ';
 		i++;
 	}
 	while (j < 50)
@@ -65,13 +61,13 @@ void	ft_print_hexa_rest_c(char *buffer, int	count)
 	write(1, " ", 1);
 }
 
-void	ft_put_compteur_c(int nbr)
+void	ft_put_compteur(int nbr)
 {
-	char	tab[8];
+	char	tab[7];
 	char	*base;
 	int		i;
 
-	i = 7;
+	i = 6;
 	base = "0123456789abcdef";
 	while (i >= 0)
 	{
@@ -84,45 +80,17 @@ void	ft_put_compteur_c(int nbr)
 			tab[i] = '0';
 		i--;
 	}
-	write(1, tab, 8);
+	write(1, tab, 7);
 }
 
-void	ft_print_char_c(char *str)
-{
-	unsigned int	i;
 
-	i = 0;
-	write(1, "|", 1);
-	while (i < 16 && str[i])
-	{
-		if (str[i] > 31 && str[i] < 127)
-			write(1, &str[i], 1);
-		else
-			write(1, ".", 1);
-		i++;
-	}
-	write(1, "|", 1);
-}
-
-void	ft_print_rest_c(t_line *line)
+void	ft_print_rest(t_line *line)
 {
 	int	i;
 
-	ft_put_compteur_c(line->previous_counter);
-	ft_print_hexa_rest_c(line->rest, line->rest_c);
-	i = 0;
-	write(1, "|", 1);
-	while (i < line->rest_c)
-	{
-		if (line->rest[i] > 31 && line->rest[i] < 127)
-			write(1, &line->rest[i], 1);
-		else
-			write(1, ".", 1);
-		i++;
-	}
-	if (line->rest[i] == 10)
-		write(1, ".", 1);
-	write(1, "|\n", 2);
+	ft_put_compteur(line->previous_counter);
+	ft_print_hexa_rest(line->rest, line->rest_c);
+	write(1, "\n", 1);
 	line->rest_c = 0;
 	ft_strcpy(line->previous, line->rest);
 	line->same = 0;
