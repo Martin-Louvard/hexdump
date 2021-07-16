@@ -6,7 +6,7 @@
 /*   By: malouvar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/16 12:16:13 by malouvar          #+#    #+#             */
-/*   Updated: 2021/07/16 12:20:37 by malouvar         ###   ########.fr       */
+/*   Updated: 2021/07/16 13:15:20 by malouvar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,8 @@ void	ft_print_hexa(char *hexa, char *buffer)
 	if (i < 16)
 		while (j < 50)
 			hexa[j++] = ' ';
-	write(1, "  ", 2);
-	write(1, hexa, 49);
 	write(1, " ", 1);
+	write(1, hexa, 47);
 }
 
 void	ft_print_hexa_rest(char *buffer, int	count)
@@ -56,9 +55,8 @@ void	ft_print_hexa_rest(char *buffer, int	count)
 	}
 	while (j < 50)
 		hexa[j++] = ' ';
-	write(1, "  ", 2);
-	write(1, hexa, 49);
 	write(1, " ", 1);
+	write(1, hexa, 47);
 }
 
 void	ft_put_compteur(int nbr)
@@ -83,11 +81,8 @@ void	ft_put_compteur(int nbr)
 	write(1, tab, 7);
 }
 
-
 void	ft_print_rest(t_line *line)
 {
-	int	i;
-
 	ft_put_compteur(line->previous_counter);
 	ft_print_hexa_rest(line->rest, line->rest_c);
 	write(1, "\n", 1);

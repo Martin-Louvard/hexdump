@@ -1,4 +1,4 @@
-SRCS =   ft_display.c  ft_hexdump.c utils.c  utils2.c utils3.c
+SRCS =   ft_display.c  ft_hexdump.c utils.c  utils2.c utils3.c ft_display2.c
 
 OBJS = ${SRCS:.c=.o}
 
@@ -8,7 +8,7 @@ CC = gcc
 
 RM = rm -f
 
-CFLAGS =  -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror
 
 .c.o:
 	${CC} ${CFLAGS} -c  $< -o ${<:.c=.o}

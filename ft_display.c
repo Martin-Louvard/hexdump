@@ -6,7 +6,7 @@
 /*   By: malouvar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/15 18:09:57 by malouvar          #+#    #+#             */
-/*   Updated: 2021/07/16 12:08:22 by malouvar         ###   ########.fr       */
+/*   Updated: 2021/07/16 13:10:55 by malouvar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -126,4 +126,5 @@ void	ft_print_rest_c(t_line *line)
 	line->rest_c = 0;
 	ft_strcpy(line->previous, line->rest);
 	line->same = 0;
+	line->previous_counter = line->compteur;
 }

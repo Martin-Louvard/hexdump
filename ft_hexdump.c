@@ -6,7 +6,7 @@
 /*   By: malouvar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/15 10:40:36 by malouvar          #+#    #+#             */
-/*   Updated: 2021/07/16 12:15:13 by malouvar         ###   ########.fr       */
+/*   Updated: 2021/07/16 13:08:37 by malouvar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "ft_header.h"
@@ -124,7 +124,7 @@ void	ft_open_files_c(t_line line, int argc, char **argv, int i)
 		ft_print_badfd(argv[0], argv[i - 1]);
 }
 
-void	ft_open_files(t_line line, int argc, char **argv, int i) //difference : taille du compteur -1 ; que hexa separes par un espace
+void	ft_open_files(t_line line, int argc, char **argv, int i)
 {
 	int	fd;
 
