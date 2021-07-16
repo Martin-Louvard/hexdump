@@ -6,52 +6,10 @@
 /*   By: malouvar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/15 10:40:36 by malouvar          #+#    #+#             */
-/*   Updated: 2021/07/16 11:16:41 by malouvar         ###   ########.fr       */
+/*   Updated: 2021/07/16 11:40:05 by malouvar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-//attention, le vrai hexdump rajoute un saut de ligne en fin de fichier.
 #include "ft_header.h"
-#include <stdio.h>
-void	ft_print_char(char *str)
-{
-	unsigned int	i;
-
-	i = 0;
-	write(1, "|", 1);
-	while (i < 16 && str[i])
-	{
-		if (str[i] > 31 && str[i] < 127)
-			write(1, &str[i], 1);
-		else
-			write(1, ".", 1);
-		i++;
-	}
-	write(1, "|", 1);
-}
-
-void	ft_print_rest(t_line *line)
-{
-	int	i;
-
-	ft_put_compteur_c(line->previous_counter);
-	ft_print_hexa_rest_c(line->rest, line->rest_c);
-	i = 0;
-	write(1, "|", 1);
-	while (i < line->rest_c)
-	{
-		if (line->rest[i] > 31 && line->rest[i] < 127)
-			write(1, &line->rest[i], 1);
-		else
-			write(1, ".", 1);
-		i++;
-	}
-	if (line->rest[i] == 10)
-		write(1, ".", 1);
-	write(1, "|\n", 2);
-	line->rest_c = 0;
-	ft_strcpy(line->previous, line->rest);
-	line->same = 0;
-}
 
 void	ft_print_line(t_line *line)
 {
@@ -113,14 +71,22 @@ int	main(int argc, char **argv)
 				i++;
 			fd = open(argv[i], O_RDONLY);
 			if (fd != -1)
+			{
+				line.opened++;
 				ft_read_file(fd, &line);
+			}
 			else
 				ft_putstrerror(argv[0], argv[i]);
 			i++;
 		}
+		if (line.opened != 0)
+		{
 		ft_print_rest(&line);
 		ft_put_compteur_c(line.compteur);
 		ft_putstr("\n");
+		}
+		else
+			ft_print_badfd(argv[0], argv[i - 1]);
 	}
 	//else
 	//read stdin

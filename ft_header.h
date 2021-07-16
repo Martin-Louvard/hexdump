@@ -6,7 +6,7 @@
 /*   By: malouvar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/15 17:13:57 by malouvar          #+#    #+#             */
-/*   Updated: 2021/07/16 11:01:36 by malouvar         ###   ########.fr       */
+/*   Updated: 2021/07/16 11:36:51 by malouvar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ typedef struct s_line
 	int		option;
 	int		same;
 	int		rest_c;
+	int		opened;
 }	t_line;
 void	ft_putstr(char *str);
 void	ft_puterr(char *str);
@@ -43,4 +44,6 @@ void	ft_strcpy(char *dest, char *src);
 void	ft_strncpy(char *dest, char *src, unsigned int n, int *rest_c);
 void	ft_print_rest(t_line *line);
 void	ft_print_hexa_rest_c(char *buffer, int	count);
+void	ft_print_char(char *str);
+void	ft_print_badfd(char *name, char *file);
 #endif
